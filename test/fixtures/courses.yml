@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  name: MyString
+  prereq: MyString
+  coreq: MyString
+  required: MyString
+  outside_prereq: MyString
+  credit_hours: 1
+
+two:
+  number: 1
+  name: MyString
+  prereq: MyString
+  coreq: MyString
+  required: MyString
+  outside_prereq: MyString
+  credit_hours: 1

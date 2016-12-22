@@ -1,0 +1,39 @@
+<!--Kyle Hutchinson created this page on 11/29/2016
+Modifications made by Jason Kline on 12/1/2016
+-->
+
+<div class = "mainbody">
+<h2>Hello <%=current_user.email %>! </h2>
+
+
+<!-- Put favorites table here -->
+<%if current_user.favorites.count != 0 %>
+    <h3>Favorites:</h3>
+<table class="center ui celled table" border="1">
+<thead>
+  <tr>
+    <th>Course Num</th>
+    <th>Course Name</th>
+    <th>Instructor</th>
+    <th>Time</th>
+  </tr>
+  </thead>
+  <% current_user.favorites.each do |fav| %>
+  <tr>
+    <% sect = Section.find_by(id: fav.section_id) %>
+    <% course = Course.find_by(id: sect.course_id) %>
+
+    <td><%= course.number%></td>
+    <td><%= course.name %></td>
+    <td><%= Instructor.find_by(id: sect.instructor_id).name %></td>
+    <td><%= sect.time%></td>
+
+  </tr>
+  <%end%>
+</table>
+<%else%>
+  <h2 class = "noFavs">Looks like you don't have any favorite sections!  Use the Search link in the side bar to add some.</h2>
+<%end%>
+
+<%= link_to "logout", destroy_user_session_path, method: :delete, :class => 'ui button' %>
+</div>

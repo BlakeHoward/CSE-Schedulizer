@@ -1,0 +1,2 @@
+module DegreeRequirmentsHelper
+end

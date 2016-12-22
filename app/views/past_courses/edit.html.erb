@@ -1,0 +1,61 @@
+<!--Jason Kline created this page on 11/29/2016
+Modifications made by Jason Kline on 11/30/2016
+Modifications made by Kyle Hutchinson on 12/1/2016
+-->
+
+<div class = "mainbody">
+<h1>Previous Courses</h1>
+<p>Click the "ADD" button next to the courses you have taken</p>
+<p>The list of courses you have taken will appear below:</p>
+
+
+<table class="ui celled table">
+  <thead>
+  <tr>
+    <th>Course Number</th>
+    <th>Course Name</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <%@past_course.each do |pastcourse| %>
+      <% if pastcourse.user_id==current_user.id %>
+          <% @courses.each do |a| %>
+              <% if pastcourse.course_id == a.id %>
+                <tr>
+                  <td><%= a.name %></td>
+                  <td><%= a.number%></td>
+                  <td><%= button_to "Delete", {:controller => "past_courses",:action => "delete", :params=>{:course_id => pastcourse.id}, :class => 'ui button'}, method: :delete %></td>
+                </tr>
+              <%end%>
+
+          <%end%>
+      <%end%>
+  <%end%>
+
+  </tbody>
+</table>
+
+
+<table class="ui celled table">
+  <thead>
+  <tr>
+    <th>Course Number</th>
+    <th>Course Name</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @courses.each do |course| %>
+    <% if !current_user.past_courses.exists?(course_id: course.id)%>
+          <tr>
+            <td><%= course.name %></td>
+            <td><%= course.number%></td>
+            <td><%= button_to "Add", {:controller => "past_courses",:action => "new", :params=>{:user_id => current_user.id, :course_id => course.id }}, method: :post%></td>
+          </tr>
+    <% end%>
+  <% end %>
+  </tbody>
+</table>
+
+</div>

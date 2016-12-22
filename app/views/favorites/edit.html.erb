@@ -1,0 +1,56 @@
+<!--Brett Boehmer created this page on 11/29/2016
+Modifications made by Jason Kline on 11/30/2016
+Modifications made by Brett Boehmer on 12/1/2016
+
+
+We show all the courses even the ones with NO INSTRUCTOR in case a student prefers a class time over a certain professor
+-->
+<div class = "mainbody">
+
+<h1>Courses</h1>
+<p>Here is a list of all the CSE courses offered at The Ohio State University</p><br>
+<p>Click the "ADD" button next to the section you want and it will be added to your favorites list.</p>
+
+
+
+<table class="ui celled table">
+  <thead>
+  <tr>
+    <th>Course Number</th>
+    <th>Course Name</th>
+    <th>Meeting Time</th>
+    <th>Location</th>
+    <th>Instructor Name</th>
+    <th>Instructor Rating</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% @sections.each do |section|%>
+            <tr>
+                <%@courses.each do |course| %>
+                    <% if course.id==section.course_id%>
+                        <td><%=course.number%></td>
+                        <td><%=course.name%></td>
+                    <%end%>
+                <% end %>
+
+                <td><%= section.time %></td>
+                <td><%= section.location %></td>
+
+                <%@instructors.each do |instructor| %>
+                    <% if instructor.id==section.instructor_id %>
+                        <td><%=instructor.name%></td>
+                        <td><%=instructor.rmp_ratings%></td>
+                    <%end%>
+                <%end%>
+
+                <td> <%=button_to "Add",{:controller => "favorites", :action => "new", :params=>{:user_id => current_user.id, :section_id => section.id}}, method: :post%></td>
+            </tr>
+  <% end %>
+  </tbody>
+</table>
+
+</div>

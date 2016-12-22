@@ -1,0 +1,2 @@
+module PastCoursesHelper
+end

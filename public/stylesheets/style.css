@@ -1,0 +1,62 @@
+.mainbody{
+    margin-left: 30px;
+}
+
+.ui.icon.button, .ui.icon.buttons .button{
+    margin-left: 30px;
+}
+
+body {
+    background-color: rgba(102, 102, 102, 0.42);
+    font-family: Helvetica Neue, Helvetica, Arial;
+}
+
+#cseSchTitle{
+    margin: 10px 0px 0px 0px;
+    color: #bb0000
+}
+
+.loginTitle{
+    text-decoration: none;
+}
+
+.loginFields{
+    color: black;
+}
+
+label {
+    color: white;
+}
+
+div.form{
+    background-color: #bb0000;
+}
+
+#signup{
+    margin: 5px 0px 0px 0px;
+}
+
+.mainbody{
+    margin: 5px 30px 0px 30px;
+}
+
+.logout{
+    float: right;
+}
+
+.noFavs{
+    text-decoration: none;
+}
+
+table thead th {
+    background-color: #e2e3e4;
+}
+
+.aboutusli{
+
+}
+
+.groupTitle{
+    text-decoration: none;
+    text-align: left;
+}

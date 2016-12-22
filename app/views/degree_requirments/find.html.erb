@@ -1,0 +1,98 @@
+<!--Jason Kline created this page on 11/29/2016
+Modifications made by Jason Kline on 11/30/2016
+Modifications made by Kyle Hutchinson on 12/1/2016
+Modifications made by Yuzhao Li on 12/1/2016
+-->
+
+<div class = "mainbody">
+
+<h1>Find your degree requirements</h1>
+<p>Here is a list of courses required for this major.  The courses will be display as: </p>
+<ul class="ui bulleted list">
+  <li class="taken">You've taken this course!</li>
+  <li class = "not_taken">You haven't taken this course!</li>
+</ul>
+
+<!--
+<form>
+  Your Major -<br>
+  BA CIS: <input type="radio" name="major" value="3"><br>
+  BS CIS: <input type="radio" name="major" value="2"><br>
+  BS CSE: <input type="radio" name="major" value="1"><br>
+  <input id="majorButton" type="submit" value="Submit">
+</form>
+
+<script>
+  document.getElementById("majorButton").onclick = function() {
+    alert("clicked");
+  }
+</script>
+-->
+
+<p>Required to graduate:</p>
+
+<% past_courses = Array.new %>
+<% current_user.past_courses.each do |past_course| %>
+  <% past_courses.push Course.find_by(id: past_course.course_id).number %>
+<% end %>
+<% major = 1 %>
+<ul class="ui bulleted list">
+<% @courses.each do |course| %>
+  <% if course.required >= major %>
+    <% if past_courses.include? course.number %>
+      <li class="taken"><%= course.name %></li>
+    <% else %>
+      <li class="not_taken"><%= course.name %></li>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% #If BA CIS or BS CIS or BS CSE %>
+<% if major <= 3 %>
+  <% #3901 OR 3902 %>
+  <% if ((past_courses.include? 3901) || (past_courses.include? 3902)) %>
+        <li class = "taken">390X</li>
+  <% else %>
+        <li class = "not_taken">390X</li>
+  <% end %>
+<% end %>
+<% #If BS CIS or BS CSE %>
+<% if major <= 2 %>
+  <% #3231 OR 3241 %>
+  <% if ((past_courses.include? 3231) || (past_courses.include? 3241)) %>
+        <li class = "taken">32X1</li>
+  <% else %>
+        <li class = "not_taken">32X1</li>
+  <% end %>
+  <% #3321 OR 3341 %>
+  <% if ((past_courses.include? 3321) || (past_courses.include? 3341)) %>
+        <li class = "taken">33X1</li>
+  <% else %>
+        <li class = "not_taken">33X1</li>
+  <% end %>
+  <% #3421 OR 3461 %>
+  <% if ((past_courses.include? 3421) || (past_courses.include? 3461)) %>
+        <li class = "taken">34X1</li>
+  <% else %>
+        <li class = "not_taken">34X1</li>
+  <% end %>
+  <% #3521 OR 3541 %>
+  <% if ((past_courses.include? 3521) || (past_courses.include? 3541)) %>
+        <li class = "taken">35X1</li>
+  <% else %>
+        <li class = "not_taken">35X1</li>
+  <% end %>
+  <% #5911 OR 5912 OR 5914 OR 5915 %>
+  <% if ((past_courses.include? 5911) || (past_courses.include? 5912) || (past_courses.include? 5914) || (past_courses.include? 5915)) %>
+        <li class = "taken">591X</li>
+  <% else %>
+        <li class = "not_taken">591X</li>
+  <% end %>
+<% end %>
+<% #If BS CSE %>
+<% if major <= 1 %>
+  <% #There are no core CSE classes that BS CSE has to take that BS CIS does not have to take %>
+<% end %>
+</ul>
+
+</div>
