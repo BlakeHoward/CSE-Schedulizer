@@ -1,12 +1,12 @@
 # CSE Schudulizer
 ### Ruby on Rails Project
 
-This project is a scheduling tool that makes it easy to find rate my professors ratings for classes that you might be interested in. It also does a sort of CSE only degree audit. To run the app, run the following commands
+This project is a scheduling tool that makes it easy to find rate my professors ratings for Ohio State classes that CSE students may interested in. It also does a sort of CSE only degree audit. To run the app, run the following commands
 
 $ rake routes
 $ rake db:migrate
 $ rake db:setup
-$ rails server
+$ rails server (default address is typically localhost:3000)
 
 Be patient with the setup command. It takes a little bit to complete. After you have the rails server running, navigate to the given setup page.
 
