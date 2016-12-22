@@ -10,12 +10,6 @@ $ rails server (default address is typically localhost:3000)
 
 Be patient with the setup command. It takes a little bit to complete. After you have the rails server running, navigate to the given setup page.
 
-### Roles
-* Overall Project Manager: Brett Boehmer
-* Coding Manager: Jason Kline
-* Testing Manager: Kyle Hutchinson
-* Documentation: Yuzhao Li
-
 ### Contributions
 
 ####Brett Boehmer
