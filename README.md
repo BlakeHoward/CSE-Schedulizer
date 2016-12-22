@@ -1,7 +1,7 @@
-# Project 6
+# CSE Schudulizer
 ### Ruby on Rails Project
 
-Our project is a scheduling tool that makes it easy to find rate my professors ratings for classes that you might be interested in. It also does a sort of CSE only degree audit. To run the app, run the following commands
+This project is a scheduling tool that makes it easy to find rate my professors ratings for classes that you might be interested in. It also does a sort of CSE only degree audit. To run the app, run the following commands
 
 $ rake routes
 $ rake db:migrate
