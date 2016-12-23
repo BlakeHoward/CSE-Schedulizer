@@ -1,4 +1,4 @@
-# CSE Schudulizer
+# CSE Schedulizer
 ### Ruby on Rails Project
 
 This project is a scheduling tool that makes it easy to find rate my professors ratings for Ohio State classes that CSE students may interested in. It also does a sort of CSE only degree audit. To run the app, run the following commands
